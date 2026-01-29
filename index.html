@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo">TT</div>
+        <div>
+          <h1 id="appTitle">Task Tracker</h1>
+          <p class="tagline">Plan • Track • Finish ✅</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">Showing</div>
+          <div class="stat-value"><span id="countText">0</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <!-- Left: Add Task -->
+      <section class="card">
+        <div class="card-title">
+          <h2>Add Task</h2>
+          <span class="pill">Live DOM Updates</span>
+        </div>
+
+        <form id="itemForm" autocomplete="off">
+          <div class="row">
+            <label for="itemText">Task</label>
+            <input id="itemText" type="text" placeholder="e.g., Study DSA for 1 hour" />
+          </div>
+
+          <div class="row">
+            <label for="itemCategory">Category</label>
+            <select id="itemCategory">
+              <option value="general">General</option>
+              <option value="study">Study</option>
+              <option value="health">Health</option>
+              <option value="personal">Personal</option>
+            </select>
+          </div>
+
+          <button id="addBtn" type="submit" class="primaryBtn">
+            <span class="btnIcon">＋</span> Add Task
+          </button>
+
+          <p id="formMessage" class="message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <!-- Right: Controls -->
+      <section class="card">
+        <div class="card-title">
+          <h2>Filters</h2>
+          <span class="pill pill-soft">Search + Category</span>
+        </div>
+
+        <div class="controls">
+          <div class="row">
+            <label for="searchInput">Search</label>
+            <input id="searchInput" type="text" placeholder="Search tasks..." />
+          </div>
+
+          <div class="row">
+            <label for="filterCategory">Category</label>
+            <select id="filterCategory">
+              <option value="all">All categories</option>
+              <option value="general">General</option>
+              <option value="study">Study</option>
+              <option value="health">Health</option>
+              <option value="personal">Personal</option>
+            </select>
+          </div>
+
+          <button id="clearAllBtn" type="button" class="dangerBtn">
+            Clear All
+          </button>
+        </div>
+      </section>
+    </section>
+
+    <!-- List -->
+    <section class="card listCard">
+      <div class="listHeader">
+        <div>
+          <h2>Tasks</h2>
+          <p class="muted">Edit / Delete, search & filter in real time.</p>
+        </div>
+      </div>
+
+      <ul id="itemList" class="list"></ul>
+      <p id="emptyState" class="emptyState">No tasks yet. Add one above 👆</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
